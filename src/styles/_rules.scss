@@ -1,0 +1,17 @@
+@for $i from 1 through 31 {
+  .calendar > div:nth-child(n+#{$i})::after {
+    content: "#{$i}";
+  }
+}
+
+@each $weekday, $position in $weekdays {
+  .calendar-#{$weekday} > div:first-child {
+    margin-left: 103px * $position;
+  }
+}
+
+@for $i from 28 to 31 {
+  .calendar-#{$i} > div:nth-child(n + #{$i + 1}) {
+    display: none;
+  }
+}
